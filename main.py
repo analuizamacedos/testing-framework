@@ -1,22 +1,27 @@
 from testcase import TestCase
+from testresult import TestResult
 
 class MyTest(TestCase):
 
-    def set_up(self):
-        print('set_up')
-
-    def tear_down(self):
-        print('tear_down')
-
     def test_a(self):
-        print('test_a')
+        print("test_a")
 
     def test_b(self):
-        print('test_b')
+        print("test_b")
 
+    def test_c(self):
+        print("test_c")
+
+
+result = TestResult()
 
 test = MyTest('test_a')
-test.run()
+test.run(result)
 
 test = MyTest('test_b')
-test.run()
+test.run(result)
+
+test = MyTest('test_c')
+test.run(result)
+
+print(result.summary())
